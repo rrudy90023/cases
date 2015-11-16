@@ -30,7 +30,7 @@ router.get('/api', function(req, res, next) {
 
 
 
-router.get('/index', function(req, res, next) {
+router.get('/', function(req, res, next) {
   //res.send('respond with a resource');
     if (!req.isAuthenticated()) {
       return res.redirect('/');
@@ -86,6 +86,10 @@ router.get('/create', function(req, res, next) {
   res.render('dockets/create', vm);
 });
 
+
+
+
+
 router.post('/create', function(req, res, next) {
   userService.addDocket(req.body, function(err) {
     //if (err) {
@@ -96,10 +100,11 @@ router.post('/create', function(req, res, next) {
         //error: err
       };
       //delete vm.input.password;
-      return res.render('dockets/create', vm);
+      //return res.render('dockets/create', vm);
     //}
+    //next();
     // req.login(req.body, function(err) {
-    //   res.redirect('/dockets');
+    res.redirect('/dockets');
     // });
   });
 });
