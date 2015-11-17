@@ -8,9 +8,9 @@ var Docket = require('../models/docket').Docket;
 
 router.get('/api', function(req, res, next) {
   //res.send('respond with a resource');
-    if (!req.isAuthenticated()) {
-      return res.redirect('/');
-    }
+    // if (!req.isAuthenticated()) {
+    //   return res.redirect('/');
+    // }
 
   Docket.find({}, function(err, dockets){
     var docketMap = {};
